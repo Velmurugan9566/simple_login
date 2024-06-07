@@ -44,7 +44,8 @@ function handle(e){
     alert('age limit is not valid between 10-30')
    }
    if (f==0){
-     axios.post('http://localhost:3001/register',{name,age,email,phone,password})
+    axios.defaults.withCredentials =true
+     axios.post('https://simple-login-api.vercel.app/register',{name,age,email,phone,password})
      .then(res => {
          status = res.data.status
       console.log(res)
