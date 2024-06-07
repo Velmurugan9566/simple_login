@@ -5,11 +5,11 @@ const usermodel = require('./module/register')
 const app = express()
 app.use(cors(
     {
-        orgin:[''],
+        orgin:['https://deploy-mern-lwhq.vercel.app'],
         method:['POST','GET'],
         credentials:true
     }
-))
+));
 app.use(express.json())
 
 mongoose.connect('mongodb+srv://velmca24:vel9566@cluster0.i4qp0rb.mongodb.net/velu?retryWrites=true&w=majority&appName=Cluster0');
