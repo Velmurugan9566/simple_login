@@ -5,7 +5,7 @@ const usermodel = require('./module/register')
 const app = express()
 app.use(cors(
     {
-        orgin:['https://deploy-mern-lwhq.vercel.app'],
+        orgin:['https://simple-login-frontend-seven.vercel.app/'],
         method:['POST','GET'],
         credentials:true
     }
