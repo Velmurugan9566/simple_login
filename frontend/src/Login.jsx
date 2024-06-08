@@ -20,7 +20,7 @@ function Login() {
     e.preventDefault()
     if (email.length != 0) {
       if (password.length != 0) {
-        axios.post('http://simple-login-api.vercel.app/login', { email, password })
+        axios.post('https://simple-login-api.vercel.app/login', { email, password })
           .then(res => {
             status = res.data.status
             console.log(res)
