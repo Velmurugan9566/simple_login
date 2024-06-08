@@ -18,7 +18,7 @@ function Signup() {
     const [conform, setcp] =useState('')
     var f =0
     var status =0
-    const pattern ='0123456789 '
+    
 function handle(e){
   // alert('helllo')
   let err
@@ -44,7 +44,7 @@ function handle(e){
     alert('age limit is not valid between 10-30')
    }
    if (f==0){
-    //axios.defaults.withCredentials =true
+    axios.defaults.withCredentials =true
      axios.post('https://simple-login-api.vercel.app/register',{name,age,email,phone,password})
      .then(res => {
          status = res.data.status
