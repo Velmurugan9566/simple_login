@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import './App.css'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
-
+ axios.defaults.withCredentials =true
 
 
 function Login() {
@@ -20,7 +20,7 @@ function Login() {
     e.preventDefault()
     if (email.length != 0) {
       if (password.length != 0) {
-        axios.post('http://localhost:3001/login', { email, password })
+        axios.post('http://simple-login-api.vercel.app/login', { email, password })
           .then(res => {
             status = res.data.status
             console.log(res)
