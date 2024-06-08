@@ -62,7 +62,7 @@ function Signup() {
 
   return (
     <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
-      <div className='bg-white p-3 rounded w-50'>
+      <div className='bg-white p-3 rounded w-500'>
         <h2>Register</h2>
         <form onSubmit={handle}>
           <div className="mb-3">
