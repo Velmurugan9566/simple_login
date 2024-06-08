@@ -7,7 +7,7 @@ import './App.css'
 import axios from 'axios'
 import { Link ,useNavigate} from 'react-router-dom';
 
-
+axios.defaults.withCredentials =true;
 
 function ForgetPs() {
     const navigate =useNavigate()
