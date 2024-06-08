@@ -6,7 +6,7 @@ const app = express()
 app.use(cors(
     {
         orgin:['https://simple-login-frontend-seven.vercel.app'],
-        method:['POST','GET'],
+        method:['post','get'],
         credentials:true
     }
 ));
