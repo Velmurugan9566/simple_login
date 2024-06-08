@@ -5,9 +5,9 @@ const usermodel = require('./module/register')
 const app = express()
 app.use(cors(
     {
-        orgin:['https://simple-login-frontend-seven.vercel.app'],
-        method:['post','get'],
-        credentials:true
+        orgin:["https://simple-login-frontend-seven.vercel.app"],
+        methods:["POST","GET","PUT"],
+        credentials : true
     }
 ));
 app.use(express.json())
@@ -38,7 +38,6 @@ app.post('/login', (req,res) => {
             if(user.password != password){
                 res.json({status:3})
             }else{
-                sendmaill(email)
                 res.json({status:1})
             }
         }
