@@ -21,7 +21,7 @@ function handle(e){
   let err
   e.preventDefault()
    if (f==0){
-     axios.put('http://localhost:3001/forgetps',{email,password})
+     axios.put('http://simple-login-api.vercel.app/forgetps',{email,password})
      .then(res => {
          status = res.data.status
           console.log(res)
