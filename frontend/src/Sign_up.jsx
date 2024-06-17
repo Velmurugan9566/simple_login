@@ -66,9 +66,10 @@ function Signup() {
   }
 
   return (
-   
-    <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
-       <ToastContainer/>
+   <>
+     <ToastContainer/>
+      <div className='d-flex justify-content-center align-items-center bg-primary vh-100 w-300'>
+       
       <div className='bg-white p-3 rounded w-500'>
         <h2>Register</h2>
         <form onSubmit={handle}>
@@ -146,6 +147,7 @@ function Signup() {
         </form>
       </div>
     </div>
+        </>
   );
 }
 
