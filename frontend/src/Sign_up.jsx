@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { toast } from 'react-toastify';
+import {ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import './App.css';
 import axios from 'axios';
@@ -20,26 +20,31 @@ function Signup() {
     validationFailed = false;
 
     if (!name) {
-      alert('Please enter name field..');
+      toast.warning('Please enter name field..');
       validationFailed = true;
+      return
     } else if (/[^a-zA-Z]/.test(name)) {
-      alert('Remove numbers from name field');
+      toast.warning('Remove numbers from name field');
       validationFailed = true;
+      return
     }
 
     if (phone.length !== 10) {
-      alert('Phone number must be 10 digits');
+      toast.warning('Phone number must be 10 digits');
       validationFailed = true;
+      return
     }
 
     if (password !== confirm) {
-      alert('Password and confirm password do not match');
+      toast.warning('Password and confirm password do not match');
       validationFailed = true;
+      return
     }
 
     if (age < 11 || age > 31) {
-      alert('Age limit is not valid (must be between 10-30)');
+      toast.warning('Age limit is not valid (must be between 10-30)');
       validationFailed = true;
+      return
     }
 
     if (!validationFailed) {
@@ -61,6 +66,7 @@ function Signup() {
   }
 
   return (
+    <ToastContainer/>
     <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
       <div className='bg-white p-3 rounded w-500'>
         <h2>Register</h2>
