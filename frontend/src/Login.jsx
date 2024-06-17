@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { toast } from 'react-toastify';
+import {ToastContainer, toast } from 'react-toastify';
 //import toast,{Toaster} from 'react-hot-toast';
 import "react-toastify/dist/ReactToastify.css";
 import './App.css'
@@ -26,7 +26,7 @@ function Login() {
             console.log(res)
             if (status == 1) {
               alert('Login Successfully')
-              sendmaill(email)
+              //sendmaill(email)
               navigate('/Dashboard')
             }
             if (status == 2) {
@@ -38,14 +38,16 @@ function Login() {
 
           }
           )
-          .catch(err => console.log(err))
+          .catch(err => {
+           toast.warning('some network error...')
+          })
       }
       else {
-        alert('password field is empty')
+        toast.warning('password field is empty')
       }
     }
     else {
-      alert('email field is empty')
+      toast.warning('email field is empty')
     }
     
 
@@ -54,6 +56,7 @@ function Login() {
 
   return (
     <>
+     <ToastContainer/>
       <div className='d-flex justify-content-center align-items-center bg-primary vh-100 w-300'>
         <div className='bg-white p-3 rounded w-250'>
           <h2>Login</h2>
