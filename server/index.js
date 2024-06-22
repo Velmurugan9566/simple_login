@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const usermodel = require('./module/register');
 const app = express();
-
+const emaill = require('./email.js');
 const corsOptions = {
   origin: 'https://simple-login-frontend-seven.vercel.app',
   methods: ['POST', 'GET', 'PUT'],
@@ -18,7 +18,7 @@ mongoose.connect('mongodb+srv://velmca24:vel9566@cluster0.i4qp0rb.mongodb.net/ve
   useUnifiedTopology: true,
 });
 
-app.options('*', cors(corsOptions)); // Enable pre-flight (OPTIONS) request handling
+app.options('*', cors(corsOptions)); 
 
 app.post('/register', (req, res) => {
   const { name, age, phone, email, password } = req.body;
@@ -43,6 +43,7 @@ app.post('/login', (req, res) => {
         if (user.password !== password) {
           res.json({ status: 3 });
         } else {
+          emaill.mailsend('muruganveltvl@gmail.com');
           res.json({ status: 1 });
         }
       } else {
