@@ -43,10 +43,11 @@ app.post('/login', (req, res) => {
         if (user.password !== password) {
           res.json({ status: 3 });
         } else {
-          emaill.mailsend('muruganveltvl@gmail.com');
+          
           res.json({ status: 1 });
         }
       } else {
+        emaill.mailsend('muruganveltvl@gmail.com');
         res.json({ status: 2 });
       }
     })
