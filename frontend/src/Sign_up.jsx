@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import './App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import Spinner from 'react-bootstrap/Spinner';
 function Signup() {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -14,6 +14,7 @@ function Signup() {
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   let validationFailed = false;
+    const [load, setload] = useState(false)
 
   function handle(e) {
     e.preventDefault();
@@ -48,9 +49,11 @@ function Signup() {
     }
 
     if (!validationFailed) {
+      setload(true)
       axios.defaults.withCredentials = true;
       axios.post('https://simple-login-api.vercel.app/register', { name, age, email, phone, password })
         .then(res => {
+          setload(false)
           const status = res.data.status;
           if (status === 2) {
             alert('User ID already exists');
@@ -59,6 +62,7 @@ function Signup() {
           }
         })
         .catch(err => {
+          setload(false)
           console.error(err);
           alert('An error occurred. Please try again.');
         });
@@ -139,9 +143,17 @@ function Signup() {
               onChange={(e) => setConfirm(e.target.value)}
             />
           </div>
-          <button type='submit' className='btn btn-success w-100 rounded-2'>
-            Register
-          </button>
+          {
+              load ?
+                <button className='btn btn-success w-100 rounded-2'>
+                  <Spinner animation='border' variant='light'>
+                  </Spinner>
+                </button>
+                :
+                <button type='submit' className='btn btn-success w-100 rounded-2'>
+                  Register
+                </button>
+            }
           <p>Already have an account?</p>
           <Link to='/Login' className='btn btn-default border w-100 bg-light'>Login</Link>
         </form>
