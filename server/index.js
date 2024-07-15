@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const usermodel = require('./module/register');
 const app = express();
-const emailll=require('./email.js')
+const emailll=require('./email.js');
 
 const corsOptions = {
   origin: 'https://simple-login-frontend-seven.vercel.app',
