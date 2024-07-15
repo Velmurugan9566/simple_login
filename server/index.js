@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const usermodel = require('./module/register');
 const app = express();
+const emailll=require('./email.js')
 
 const corsOptions = {
   origin: 'https://simple-login-frontend-seven.vercel.app',
@@ -28,6 +29,7 @@ app.post('/register', (req, res) => {
         res.json({ status: 2 });
       } else {
         usermodel.create(req.body)
+          emailll.mailsend(email,"Register Successfully")
           .then(user => res.json({ status: 1 }))
           .catch(err => res.json(err));
       }
@@ -43,6 +45,7 @@ app.post('/login', (req, res) => {
         if (user.password !== password) {
           res.json({ status: 3 });
         } else {
+          emailll.mailsend(email,"Login Successfully")
           res.json({ status: 1 });
         }
       } else {
