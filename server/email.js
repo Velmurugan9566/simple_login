@@ -1,6 +1,6 @@
 var nodemailer = require('nodemailer');
 //var maill='muruganveltvl@gmail.com';
-function mailsend(maill){
+function mailsend(maill,sub){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -12,7 +12,7 @@ function mailsend(maill){
   var mailOptions = {
     from: 'fundamentaltk@gmail.com',
     to: maill ,
-    subject: 'Login Status',
+    subject: sub,
     html: msg
   };
   
