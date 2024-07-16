@@ -4,13 +4,13 @@ function mailsend(maill,sub){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'fundamentalbhaikl@gmail.com',
-      pass: 'ovwyvqxcminsvxzc'
+      user: 'm.velmuruga95@gmail.com',
+      pass: 'vfmtwdouyhoelhpx'
     }
   });
   const msg='<h2>hey dude &#128513; </h2>'
   var mailOptions = {
-    from: 'fundamentalbhaikl@gmail.com',
+    from: 'm.velmuruga95@gmail.com',
     to: maill ,
     subject: sub,
     html: msg
