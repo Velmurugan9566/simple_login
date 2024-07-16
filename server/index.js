@@ -29,8 +29,10 @@ app.post('/register', (req, res) => {
         res.json({ status: 2 });
       } else {
         usermodel.create(req.body)
-          emailll.mailsend(email,"Register Successfully")
-          .then(user => res.json({ status: 1 }))
+          .then(user =>{ 
+            emailll.mailsend(email,"Register Successfully")
+            res.json({ status: 1 })
+          })
           .catch(err => res.json(err));
       }
     })
