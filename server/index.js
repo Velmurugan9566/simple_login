@@ -14,10 +14,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://velmca24:vel9566@cluster0.i4qp0rb.mongodb.net/velu?retryWrites=true&w=majority&appName=Cluster0', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb+srv://velmca24:vel9566@cluster0.i4qp0rb.mongodb.net/velu?retryWrites=true&w=majority&appName=Cluster0');
 
 app.options('*', cors(corsOptions)); // Enable pre-flight (OPTIONS) request handling
 
