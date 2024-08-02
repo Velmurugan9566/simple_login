@@ -18,6 +18,7 @@ function mailsend(maill,sub){
   
   try{
     transporter.sendMail(mailOptions);
+    alert('email sent');
     console.log('Email send successfully')
   }catch(error){
     console.log('Error sending email: ',error)
